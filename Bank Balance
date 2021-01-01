@@ -1,0 +1,29 @@
+class bank_account():
+    def __init__(self,name,balance):
+        self.name = name
+        self.balance = balance
+        print(f'You currently have {self.balance} JPY inside your bank account!')
+        
+    def deposit(self):
+        deposit_amount = int(input('How much do you want to deposit? '))
+        print('Please wait. Your transaction is being processed. Thank you!')
+        self.balance += deposit_amount
+        print(f'You currently have {self.balance} JPY inside your bank account!')
+        return self.balance
+    
+    def withdraw(self):
+        withdraw_amount = -1
+        while withdraw_amount == -1 or withdraw_amount > self.balance:
+            withdraw_amount = int(input(f'You currently have {self.balance} JPY in your account. How much do you want to withdraw? '))
+            if withdraw_amount > self.balance:
+                print('Sorry. Withdrawal cannot exceed the balance! Please try again!')
+            elif withdraw_amount == 0:
+                break
+            else: 
+                print('Please wait. Your transaction is being processed. Thank you!')
+                self.balance -= withdraw_amount
+        print(f'You currently have {self.balance} JPY inside your bank account!')
+        return self.balance
+    
+    
+        
